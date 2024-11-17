@@ -7,7 +7,8 @@ module.exports = ({ env }) => ({
         'https://www.nomanmohammad.com',
         'http://localhost:3000',
         'http://localhost:5173', 
-        'http://127.0.0.1:5173'  
+        'http://127.0.0.1:5173',
+        '*'  // Allow all origins during development
       ],
       credentials: true,
       methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS'],
@@ -21,6 +22,11 @@ module.exports = ({ env }) => ({
         'Access-Control-Allow-Headers',
         'Access-Control-Allow-Methods'
       ],
+      expose: [
+        'Access-Control-Allow-Origin',
+        'Access-Control-Allow-Methods',
+        'Access-Control-Allow-Headers'
+      ]
     },
   },
 });
