@@ -2,7 +2,7 @@ services:
   - type: web
     name: nomogen-strapi
     env: node
-    buildCommand: yarn install --no-frozen-lockfile && yarn build
+    buildCommand: yarn && yarn build
     startCommand: yarn start
     nodeVersion: 18.17.0
     envVars:
