@@ -1,0 +1,46 @@
+services:
+  - type: web
+    name: nomogen-strapi
+    env: node
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    nodeVersion: 18.17.0
+    envVars:
+      - key: NODE_VERSION
+        value: 18.17.0
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_CLIENT
+        value: mysql
+      - key: DATABASE_HOST
+        fromDatabase:
+          name: nomogen-db
+          property: host
+      - key: DATABASE_PORT
+        fromDatabase:
+          name: nomogen-db
+          property: port
+      - key: DATABASE_NAME
+        fromDatabase:
+          name: nomogen-db
+          property: database
+      - key: DATABASE_USERNAME
+        fromDatabase:
+          name: nomogen-db
+          property: user
+      - key: DATABASE_PASSWORD
+        fromDatabase:
+          name: nomogen-db
+          property: password
+      - key: JWT_SECRET
+        generateValue: true
+      - key: ADMIN_JWT_SECRET
+        generateValue: true
+      - key: APP_KEYS
+        generateValue: true
+      - key: API_TOKEN_SALT
+        generateValue: true
+
+databases:
+  - name: nomogen-db
+    plan: free
