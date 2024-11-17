@@ -18,13 +18,10 @@ module.exports = [
   {
     name: 'strapi::cors',
     config: {
-      enabled: true,
-      headers: '*',
       origin: ['http://localhost:5173', 'https://nomogenai.com', 'https://www.nomogenai.com'],
       methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS'],
+      headers: ['Content-Type', 'Authorization', 'Origin', 'Accept'],
       keepHeaderOnError: true,
-      credentials: true,
-      maxAge: 86400,
     },
   },
   'strapi::poweredBy',
