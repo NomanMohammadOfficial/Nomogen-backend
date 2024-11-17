@@ -19,10 +19,8 @@ module.exports = [
     name: 'strapi::cors',
     config: {
       enabled: true,
+      headers: '*',
       origin: ['http://localhost:5173', 'http://127.0.0.1:5173', 'https://nomanmohammad.com', 'https://www.nomanmohammad.com'],
-      headers: ['*'],
-      methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS'],
-      keepHeaderOnError: true,
     },
   },
   'strapi::poweredBy',
